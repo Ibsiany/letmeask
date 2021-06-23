@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useState,useEffect } from "react";
+import { createContext, ReactNode, useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { firebase, auth } from "../services/firebase";
 
 type User = {
@@ -27,7 +28,7 @@ export function AuthContextProvider(props: AuthContextProviderType) {
         const { displayName, photoURL, uid } = user;
 
         if (!displayName || !photoURL) {
-          throw new Error("Missing information from Google Account.");
+          return toast.error("Você precisa estar logado");
         }
 
         setUser({
@@ -65,6 +66,7 @@ export function AuthContextProvider(props: AuthContextProviderType) {
 
   return (
     <AuthContext.Provider value={{ user, sigInWithGoogle }}>
+      <Toaster position="top-center" reverseOrder={false} />
       {props.children}
     </AuthContext.Provider>
   );
