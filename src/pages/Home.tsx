@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { FormEvent, useState } from 'react';
+import toast, { Toaster } from "react-hot-toast";
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
@@ -35,11 +36,16 @@ export function Home(){
             return;
         }
 
+        if(roomRef.val().endedAt){
+            return  toast.error("Essa sala já foi encerrada.");
+        }
+
         history.push(`/rooms/${roomCode}`)
     }
 
     return (
         <div id="page-auth">
+            <Toaster position="top-center" reverseOrder={false} />
             <aside>
                 <img src={illustrationImg} alt="ilustração simbolizando perguntas e respostas" />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
