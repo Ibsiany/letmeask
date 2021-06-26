@@ -89,6 +89,30 @@
         }
       }
     }
+
+  @media(max-width: 900px){
+    display: flex;
+    flex-direction: column;
+    form{
+      margin-bottom: 1rem;
+    }
+    
+    main{
+      padding-top: 2.5rem;
+      background: rgba(27, 27, 27, 0.658);
+    }
+
+    .main-content {
+      p{
+        color: white;
+        margin-bottom: 1rem;
+
+        a {
+          color: black;
+        }
+      }
+    }
+  }
 }
 
 .create-room {
@@ -114,7 +138,7 @@
   
     &:hover {
       filter: brightness(0.9)
-    }
+    }    
   }
 
 .separator {

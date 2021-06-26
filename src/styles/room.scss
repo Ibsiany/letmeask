@@ -108,5 +108,9 @@
     .question-list {
       margin-top: 32px;
     }
+
+    @media(max-width: 900px){
+      padding: 1rem;
+    }
   }
 }

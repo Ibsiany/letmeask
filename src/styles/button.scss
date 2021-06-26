@@ -35,4 +35,10 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
+
+  @media(max-width: 900px){
+    background:  #f0f0f0;
+    color: #0f0f0f;
+    border: 1.5px solid #0f0f0f;
+  }
 }
